@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter2/lesson_11/subtask_1_screen.dart';
 import 'package:flutter2/lesson_11/subtask_2_screen.dart';
 import 'package:flutter2/lesson_11/subtask_3_screen.dart';
+import 'package:flutter2/lesson_11/subtask_4_screen.dart';
 
 class Homework11Main extends StatelessWidget {
   const Homework11Main({super.key});
@@ -60,6 +61,19 @@ class Homework11Main extends StatelessWidget {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (context) => const Subtask3Screen(),
+                ),
+              ),
+            ),
+            NavigationCard(
+              title: 'Subtask 4',
+              description:
+              '- Subtask 4 \n'
+                  '- Stretch first container \n'
+                  '- Change text alignment',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (context) => const Subtask4Screen(),
                 ),
               ),
             ),
