@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter2/lesson_11/subtask_1_screen.dart';
-import 'package:flutter2/lesson_11/subtask_2_screen.dart';
-import 'package:flutter2/lesson_11/subtask_3_screen.dart';
-import 'package:flutter2/lesson_11/subtask_4_screen.dart';
-import 'package:flutter2/lesson_11/subtask_5_screen.dart';
+import 'package:flutter2/lesson_11/screens/subtask_1_screen.dart';
+import 'package:flutter2/lesson_11/screens/subtask_2_screen.dart';
+import 'package:flutter2/lesson_11/screens/subtask_3_screen.dart';
+import 'package:flutter2/lesson_11/screens/subtask_4_screen.dart';
+import 'package:flutter2/lesson_11/screens/subtask_5_screen.dart';
 
 class Homework11Main extends StatelessWidget {
   const Homework11Main({super.key});
