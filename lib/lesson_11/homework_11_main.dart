@@ -3,6 +3,7 @@ import 'package:flutter2/lesson_11/subtask_1_screen.dart';
 import 'package:flutter2/lesson_11/subtask_2_screen.dart';
 import 'package:flutter2/lesson_11/subtask_3_screen.dart';
 import 'package:flutter2/lesson_11/subtask_4_screen.dart';
+import 'package:flutter2/lesson_11/subtask_5_screen.dart';
 
 class Homework11Main extends StatelessWidget {
   const Homework11Main({super.key});
@@ -67,13 +68,28 @@ class Homework11Main extends StatelessWidget {
             NavigationCard(
               title: 'Subtask 4',
               description:
-              '- Subtask 4 \n'
+                  '- Subtask 4 \n'
                   '- Stretch first container \n'
                   '- Change text alignment',
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (context) => const Subtask4Screen(),
+                ),
+              ),
+            ),
+            NavigationCard(
+              title: 'Subtask 5',
+              description:
+                  '- Subtask 5 \n'
+                  '- Color should be changed after click\n'
+                  '- Icons.star_border replaced Icons.star after click \n'
+                  '- Add Box shadow \n'
+                  '- Add smooth color change animation',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (context) => const Subtask5Screen(),
                 ),
               ),
             ),
