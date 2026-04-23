@@ -7,7 +7,7 @@ class Subtask2Screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Subtask 1'),
+        title: const Text('Subtask 2'),
         backgroundColor: Colors.blue.shade100,
       ),
       body: Center(

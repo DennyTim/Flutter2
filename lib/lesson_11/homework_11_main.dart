@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter2/lesson_11/subtask_1_screen.dart';
 import 'package:flutter2/lesson_11/subtask_2_screen.dart';
+import 'package:flutter2/lesson_11/subtask_3_screen.dart';
 
 class Homework11Main extends StatelessWidget {
   const Homework11Main({super.key});
@@ -32,7 +33,7 @@ class Homework11Main extends StatelessWidget {
               ),
             ),
             NavigationCard(
-              title: 'Subtask 1',
+              title: 'Subtask 2',
               description:
                   '- Subtask 2 \n'
                   '- Text Settings: "color: white, size: 20, fw: bold" \n'
@@ -45,6 +46,20 @@ class Homework11Main extends StatelessWidget {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (context) => const Subtask2Screen(),
+                ),
+              ),
+            ),
+            NavigationCard(
+              title: 'Subtask 3',
+              description:
+                  '- Subtask 3 \n'
+                  '- Container should be in Column Widget \n'
+                  '- Copy container two times (Summary: 3) \n'
+                  '- Change color: 1st blue, 2nd green, 3d red \n',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (context) => const Subtask3Screen(),
                 ),
               ),
             ),
