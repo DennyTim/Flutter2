@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter2/lesson_11/subtask_1_screen.dart';
+import 'package:flutter2/lesson_11/subtask_2_screen.dart';
 
 class Homework11Main extends StatelessWidget {
   const Homework11Main({super.key});
@@ -27,6 +28,23 @@ class Homework11Main extends StatelessWidget {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (context) => const Subtask1Screen(),
+                ),
+              ),
+            ),
+            NavigationCard(
+              title: 'Subtask 1',
+              description:
+                  '- Subtask 2 \n'
+                  '- Text Settings: "color: white, size: 20, fw: bold" \n'
+                  '- Add icons: "left icon ⭐, right icon ⭐" \n'
+                  '- Alignment: \n'
+                  '  --  "should be placed in bottom right" \n'
+                  '  --  "10px indents between text and stars" \n'
+                  '  --  "add 10px paddings around block" \n',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (context) => const Subtask2Screen(),
                 ),
               ),
             ),

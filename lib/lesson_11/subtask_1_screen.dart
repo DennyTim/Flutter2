@@ -21,7 +21,6 @@ class Subtask1Screen extends StatelessWidget {
               BorderSide(color: Colors.blue, width: 1),
             ),
           ),
-          child: const Center(child: Text('Subtask 1')),
         ),
       ),
     );
