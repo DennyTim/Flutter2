@@ -49,10 +49,7 @@ class _WidgetConstrainsTrainingScreenState
           underline: const SizedBox.shrink(),
           items: List.generate(
             _tasks.length,
-                (i) => DropdownMenuItem(
-              value: i,
-              child: Text('Task ${i + 1}'),
-            ),
+            (i) => DropdownMenuItem(value: i, child: Text('Task ${i + 1}')),
           ),
           onChanged: (v) {
             final index = v ?? 0;
@@ -71,17 +68,15 @@ class _WidgetConstrainsTrainingScreenState
 // Зараз: червоний квадрат займає все доступне місце і перекриває зелений
 class TrainingExample1 extends StatelessWidget {
   const TrainingExample1({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
       width: 300,
       color: Colors.green,
-      child: Container(
-        width: 150,
-        height: 150,
-        color: Colors.red,
-      ),
+      alignment: Alignment.topRight,
+      child: Container(width: 150, height: 150, color: Colors.red),
     );
   }
 }
@@ -94,19 +89,19 @@ class TrainingExample1 extends StatelessWidget {
 // місце по ширині
 class TrainingExample2 extends StatelessWidget {
   const TrainingExample2({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Container(
-          width: 100,
-          height: 200,
-          color: Colors.green,
-        ),
-        Container(
-          width: double.infinity,
-          height: 200,
-          color: Colors.blue,
+        Container(width: 100, height: 200, color: Colors.green),
+        Flexible(
+          fit: FlexFit.loose,
+          child: Container(
+            width: double.infinity,
+            height: 200,
+            color: Colors.blue,
+          ),
         ),
       ],
     );
@@ -119,14 +114,21 @@ class TrainingExample2 extends StatelessWidget {
 // через alignment: Alignment(x, y).
 // Подивіться як вирівнювання працює зараз і який віджет
 // для цього використовується. В чому різниця з віджетом Align?
-
+///
+/// Відповідь: Різниця з Align в тому що, Align дозволяє розміщувати child віджет
+/// як хочеш в тому числі і в центрів, а Center тільки в центрі відносно
+/// батьківського віджета.
+///
 class TrainingExample3 extends StatelessWidget {
   const TrainingExample3({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.yellow,
-      child: Center(
+      child: Align(
+        /// також Alignment.topRight
+        alignment: Alignment(1, -1),
         child: Container(color: Colors.green, width: 100, height: 100),
       ),
     );
@@ -143,15 +145,17 @@ class TrainingExample3 extends StatelessWidget {
 
 class TrainingExample4 extends StatelessWidget {
   const TrainingExample4({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.green,
-
-      child: Container(
-        color: Colors.orange,
-        height: 200,
-        width: 200,
+    return Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: 200, maxHeight: 200),
+        child: Container(
+          color: Colors.green,
+          padding: const EdgeInsets.all(10.0),
+          child: Container(color: Colors.orange, height: 200, width: 200),
+        ),
       ),
     );
   }
@@ -166,19 +170,34 @@ class TrainingExample4 extends StatelessWidget {
 // Подумайте, які розміри будуть у синього та червоного контейнерів.
 // Чи є різниця, якщо обгорнути контейнери в Padding чи передати параметри
 // margin чи передати padding?
-
+///
+/// Відповідь: Padding - обгортка, яка додає простір навколо child.
+/// Не входить в розміри child, але входить в розміри relative Container.
+/// Властивість padding є частиною розмірів контейнера. При вказуванні margin
+/// візуально різниці не буде між margin і Padding, але вплине при наявності
+/// border або background оскільки Padding це внутрішні відступи контейнера,
+/// а margin це зовнішні відступи за межами поточного контейнера
+///
 class TrainingExample5 extends StatelessWidget {
   const TrainingExample5({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.red,
-      child: Container(
-        color: Colors.blue,
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(16.0),
         child: Container(
-          color: Colors.yellow,
-          height: 100,
-          width: 100,
+          color: Colors.red,
+          child: Padding(
+            padding: EdgeInsets.all(16.0),
+            child: Container(
+              color: Colors.blue,
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Container(color: Colors.yellow, height: 100, width: 100),
+              ),
+            ),
+          ),
         ),
       ),
     );
@@ -193,14 +212,13 @@ class TrainingExample5 extends StatelessWidget {
 // Звертаю увагу, що сам текст теж має бути вирівняний по центру.
 class TrainingExample6 extends StatelessWidget {
   const TrainingExample6({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
         color: Colors.orange,
-        child: const Text(
-          'Lorem ipsum dolor sit amet, consectetur',
-        ),
+        child: const Text('Lorem ipsum dolor sit amet, consectetur'),
       ),
     );
   }
@@ -214,6 +232,7 @@ class TrainingExample6 extends StatelessWidget {
 
 class TrainingExample7 extends StatelessWidget {
   const TrainingExample7({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -234,6 +253,7 @@ class TrainingExample7 extends StatelessWidget {
 // Зараз: всі три однакового розміру (flex: 1 за замовчуванням).
 class TrainingExample8 extends StatelessWidget {
   const TrainingExample8({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -252,6 +272,7 @@ class TrainingExample8 extends StatelessWidget {
 // Зараз: червоний та зелений контейнери мають однакові розміри.
 class TrainingExample9 extends StatelessWidget {
   const TrainingExample9({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -270,6 +291,7 @@ class TrainingExample9 extends StatelessWidget {
 
 class TrainingExample10 extends StatelessWidget {
   const TrainingExample10({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -292,6 +314,7 @@ class TrainingExample10 extends StatelessWidget {
 
 class TrainingExample11 extends StatelessWidget {
   const TrainingExample11({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -321,6 +344,7 @@ class TrainingExample11 extends StatelessWidget {
 
 class TrainingExample12 extends StatelessWidget {
   const TrainingExample12({super.key});
+
   @override
   Widget build(BuildContext context) {
     const redContainerWidth = 100.0;
@@ -347,6 +371,7 @@ class TrainingExample12 extends StatelessWidget {
 
 class TrainingExample13 extends StatelessWidget {
   const TrainingExample13({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -373,6 +398,7 @@ class TrainingExample13 extends StatelessWidget {
 
 class TrainingExample14 extends StatelessWidget {
   const TrainingExample14({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -396,6 +422,7 @@ class TrainingExample14 extends StatelessWidget {
 
 class TrainingExample15 extends StatelessWidget {
   const TrainingExample15({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -411,6 +438,7 @@ class TrainingExample15 extends StatelessWidget {
 // Відповідь: ConstrainedBox не застосовуються, тому що ...
 class TrainingExample16 extends StatelessWidget {
   const TrainingExample16({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -434,6 +462,7 @@ class TrainingExample16 extends StatelessWidget {
 
 class TrainingExample17 extends StatelessWidget {
   const TrainingExample17({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -463,6 +492,7 @@ class TrainingExample17 extends StatelessWidget {
 
 class TrainingExample18 extends StatelessWidget {
   const TrainingExample18({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -484,6 +514,7 @@ class TrainingExample18 extends StatelessWidget {
 
 class TrainingExample19 extends StatelessWidget {
   const TrainingExample19({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -508,6 +539,7 @@ class TrainingExample19 extends StatelessWidget {
 
 class TrainingExample20 extends StatelessWidget {
   const TrainingExample20({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -518,11 +550,7 @@ class TrainingExample20 extends StatelessWidget {
           child: OverflowBox(
             maxHeight: double.infinity,
             maxWidth: double.infinity,
-            child: Container(
-              color: Colors.green,
-              width: 200,
-              height: 200,
-            ),
+            child: Container(color: Colors.green, width: 200, height: 200),
           ),
         ),
         Container(color: Colors.blue, height: 100, width: double.infinity),
@@ -538,6 +566,7 @@ class TrainingExample20 extends StatelessWidget {
 // Відповідь: ...
 class TrainingExample21 extends StatelessWidget {
   const TrainingExample21({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -546,11 +575,7 @@ class TrainingExample21 extends StatelessWidget {
           children: [
             LimitedBox(
               maxHeight: 50,
-              child: Container(
-                color: Colors.red,
-                height: 100,
-                width: 100,
-              ),
+              child: Container(color: Colors.red, height: 100, width: 100),
             ),
           ],
         ),
@@ -561,11 +586,7 @@ class TrainingExample21 extends StatelessWidget {
               height: 100,
               child: LimitedBox(
                 maxHeight: 50,
-                child: Container(
-                  color: Colors.green,
-                  height: 100,
-                  width: 100,
-                ),
+                child: Container(color: Colors.green, height: 100, width: 100),
               ),
             ),
           ],
@@ -581,6 +602,7 @@ class TrainingExample21 extends StatelessWidget {
 // Відповідь: ...
 class TrainingExample22 extends StatelessWidget {
   const TrainingExample22({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const LimitedBox(
@@ -589,11 +611,11 @@ class TrainingExample22 extends StatelessWidget {
         color: Colors.green,
         child: Text(
           'lorem ipsum dolor sit amet consectetur adipiscing elit sed do '
-              'eiusmod tempor incididunt ut labore et dolore magna aliqua, '
-              'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do '
-              'eiusmod tempor incididunt ut labore et dolore magna aliqua, '
-              'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do '
-              'eiusmod tempor incididunt ut labore et dolore magna aliqua, ',
+          'eiusmod tempor incididunt ut labore et dolore magna aliqua, '
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do '
+          'eiusmod tempor incididunt ut labore et dolore magna aliqua, '
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit sed do '
+          'eiusmod tempor incididunt ut labore et dolore magna aliqua, ',
         ),
       ),
     );
