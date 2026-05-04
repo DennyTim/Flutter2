@@ -217,8 +217,14 @@ class TrainingExample6 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
+        alignment: Alignment.center,
         color: Colors.orange,
-        child: const Text('Lorem ipsum dolor sit amet, consectetur'),
+        width: 200,
+        height: 200,
+        child: const Text(
+          'Lorem ipsum dolor sit amet, consectetur',
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
@@ -238,9 +244,11 @@ class TrainingExample7 extends StatelessWidget {
     return Column(
       children: [
         Container(color: Colors.orange, height: 100, width: 100),
-        ListView.builder(
-          itemCount: 50,
-          itemBuilder: (context, index) => Text('Item $index'),
+        Expanded(
+          child: ListView.builder(
+            itemCount: 50,
+            itemBuilder: (context, index) => Text('Item $index'),
+          ),
         ),
       ],
     );
@@ -259,7 +267,7 @@ class TrainingExample8 extends StatelessWidget {
     return Column(
       children: [
         Expanded(child: Container(color: Colors.red)),
-        Expanded(child: Container(color: Colors.green)),
+        Expanded(flex: 2, child: Container(color: Colors.green)),
         Expanded(child: Container(color: Colors.blue)),
       ],
     );
@@ -277,8 +285,8 @@ class TrainingExample9 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(child: Container(color: Colors.red, height: 100)),
-        Expanded(child: Container(color: Colors.green)),
+        Expanded(flex: 0, child: Container(color: Colors.red, height: 100)),
+        Expanded(flex: 1, child: Container(color: Colors.green)),
       ],
     );
   }
@@ -298,9 +306,11 @@ class TrainingExample10 extends StatelessWidget {
       child: Row(
         children: [
           Container(color: Colors.orange, height: 100, width: 100),
-          ListView.builder(
-            itemCount: 20,
-            itemBuilder: (context, index) => Text('Item $index'),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 20,
+              itemBuilder: (context, index) => Text('Item $index'),
+            ),
           ),
         ],
       ),
