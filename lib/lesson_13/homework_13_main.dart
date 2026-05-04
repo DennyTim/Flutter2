@@ -474,7 +474,8 @@ class TrainingExample15 extends StatelessWidget {
 // Тут просто розберіться - чому не застосовуються constraints ConstrainedBox?
 
 // Запишіть відповідь у коментарі до коду нижче
-// Відповідь: ConstrainedBox не застосовуються, тому що ...
+/// Відповідь: ConstrainedBox не застосовуються, тому що SizedBox має tight
+/// властивості які нівелюють властивості ConstrainedBox як пріорітетно низькі
 class TrainingExample16 extends StatelessWidget {
   const TrainingExample16({super.key});
 
@@ -507,13 +508,16 @@ class TrainingExample17 extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 250),
-            child: SizedBox(
-              width: 1000,
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Press me'),
+          child: Align(
+            alignment: Alignment(0, 0),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 250),
+              child: SizedBox(
+                width: 1000,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Press me'),
+                ),
               ),
             ),
           ),
@@ -539,7 +543,13 @@ class TrainingExample18 extends StatelessWidget {
         color: Colors.blue,
         width: 200,
         height: 200,
-        child: Container(color: Colors.red, width: 50, height: 50),
+        child: OverflowBox(
+          minWidth: 0,
+          minHeight: 0,
+          maxWidth: 50,
+          maxHeight: 50,
+          child: Container(color: Colors.red, width: 50, height: 50),
+        ),
       ),
     );
   }
@@ -561,7 +571,11 @@ class TrainingExample19 extends StatelessWidget {
         color: Colors.blue,
         width: 200,
         height: 200,
-        child: UnconstrainedBox(
+        child: OverflowBox(
+          minWidth: 0,
+          minHeight: 0,
+          maxWidth: double.infinity,
+          maxHeight: double.infinity,
           child: Container(color: Colors.green, width: 300, height: 100),
         ),
       ),
@@ -574,7 +588,9 @@ class TrainingExample19 extends StatelessWidget {
 // накладається на червоний, але не накладається на синій (він знаходиться під
 // синім контейнером). Відповідь запишіть в коментарі до коду нижче.
 
-/// Відповідь: ...
+/// Відповідь: тому що синій контейнер вказаний пізніше за зелений і правила
+/// OverflowBox втрачають можливість регулювати накладання на синій контейнер
+/// оскільки Flutter малює віджети в порядку оголошення
 
 class TrainingExample20 extends StatelessWidget {
   const TrainingExample20({super.key});
@@ -602,7 +618,8 @@ class TrainingExample20 extends StatelessWidget {
 // На цьому прикладі розгляньте, чому в другому Column контейнер з зеленим
 // кольором не обмежується батьком LimitedBox.
 
-// Відповідь: ...
+/// Відповідь: Тому що LimitedBox працює тільки з relative unbounded constraints
+/// які надає Column але не надає SizedBox
 class TrainingExample21 extends StatelessWidget {
   const TrainingExample21({super.key});
 
@@ -638,7 +655,10 @@ class TrainingExample21 extends StatelessWidget {
 // Task 22:
 // Чому LimitedBox не впливає на розмір зеленого контейнера?
 
-// Відповідь: ...
+/// Відповідь: тому що Екран примушує LimitedBox бути конкретного розміру
+/// і має бути обгорнутий у віджет який надає unbounded constraints
+/// якого за замовчуванням немає так як він отримує bounded constraints
+/// від Scaffold/body.
 class TrainingExample22 extends StatelessWidget {
   const TrainingExample22({super.key});
 
