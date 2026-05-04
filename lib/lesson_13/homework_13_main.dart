@@ -330,15 +330,17 @@ class TrainingExample11 extends StatelessWidget {
     return Center(
       child: Row(
         children: [
-          Expanded(child: Container(color: Colors.red, width: 80, height: 100)),
-          Expanded(child: Container(color: Colors.green, height: 100)),
-          Expanded(child: Container(color: Colors.blue, height: 100)),
+          Expanded(
+            flex: 0,
+            child: Container(color: Colors.red, width: 80, height: 100),
+          ),
+          Expanded(flex: 1, child: Container(color: Colors.green, height: 100)),
+          Expanded(flex: 1, child: Container(color: Colors.blue, height: 100)),
         ],
       ),
     );
   }
 }
-
 // Task 12:
 // Очікуваний результат: у Row є два контейнери висотою 100.
 // Лівий контейнер — червоний, з динамічною шириною.
@@ -359,6 +361,27 @@ class TrainingExample12 extends StatelessWidget {
   Widget build(BuildContext context) {
     const redContainerWidth = 100.0;
 
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        if (constraints.maxWidth > redContainerWidth) {
+          return _buildIfScreenGreater(redContainerWidth);
+        } else {
+          return _buildIfScreenLess();
+        }
+      },
+    );
+  }
+
+  Container _buildIfScreenLess() {
+    return Container(
+      color: Colors.red,
+      height: 100,
+      width: double.infinity,
+      child: const Text('Hi'),
+    );
+  }
+
+  Row _buildIfScreenGreater(double redContainerWidth) {
     return Row(
       children: [
         Container(
@@ -389,9 +412,11 @@ class TrainingExample13 extends StatelessWidget {
         width: 200,
         height: 50,
         color: Colors.amber,
-        child: const Text(
-          'Дуже довгий текст який не поміщається',
-          style: TextStyle(fontSize: 30),
+        child: FittedBox(
+          child: const Text(
+            'Дуже довгий текст який не поміщається',
+            style: TextStyle(fontSize: 30),
+          ),
         ),
       ),
     );
@@ -417,6 +442,7 @@ class TrainingExample14 extends StatelessWidget {
         height: 100,
         color: Colors.lightBlue.shade100,
         child: const FittedBox(
+          fit: BoxFit.scaleDown,
           child: Text('Flutter', style: TextStyle(fontSize: 30)),
         ),
       ),
@@ -436,7 +462,10 @@ class TrainingExample15 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(color: Colors.yellow, width: 50, height: 50),
+      child: ConstrainedBox(
+        constraints: BoxConstraints(minWidth: 200, minHeight: 200),
+        child: Container(color: Colors.yellow, width: 50, height: 50),
+      ),
     );
   }
 }
