@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'lesson_11/homework_11_main.dart';
 import 'lesson_12/homework_12_main.dart';
+import 'lesson_13/homework_13_main.dart';
 
 void main() {
   runApp(const FlutterWidgetsApp());
@@ -46,6 +47,15 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute<Widget>(
                   builder: (context) => const Homework12Main(),
+                ),
+              ),
+            ),
+            FeatureCard(
+              title: 'Homework 13',
+              onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (context) => const WidgetConstrainsTrainingScreen(),
                 ),
               ),
             ),
