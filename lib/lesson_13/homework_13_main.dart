@@ -95,8 +95,7 @@ class TrainingExample2 extends StatelessWidget {
     return Row(
       children: [
         Container(width: 100, height: 200, color: Colors.green),
-        Flexible(
-          fit: FlexFit.loose,
+        Expanded(
           child: Container(
             width: double.infinity,
             height: 200,
@@ -285,7 +284,7 @@ class TrainingExample9 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Expanded(flex: 0, child: Container(color: Colors.red, height: 100)),
+        Container(color: Colors.red, height: 100),
         Expanded(flex: 1, child: Container(color: Colors.green)),
       ],
     );
@@ -330,12 +329,9 @@ class TrainingExample11 extends StatelessWidget {
     return Center(
       child: Row(
         children: [
-          Expanded(
-            flex: 0,
-            child: Container(color: Colors.red, width: 80, height: 100),
-          ),
-          Expanded(flex: 1, child: Container(color: Colors.green, height: 100)),
-          Expanded(flex: 1, child: Container(color: Colors.blue, height: 100)),
+          Container(color: Colors.red, width: 80, height: 100),
+          Expanded(child: Container(color: Colors.green, height: 100)),
+          Expanded(child: Container(color: Colors.blue, height: 100)),
         ],
       ),
     );
