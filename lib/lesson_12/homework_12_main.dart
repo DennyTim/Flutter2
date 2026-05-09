@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter2/lesson_12/models/payload.dart';
 import 'package:flutter2/lesson_12/screens/new_page.dart';
-
-import 'models/payload.dart';
 
 class Homework12Main extends StatelessWidget {
   const Homework12Main({super.key});

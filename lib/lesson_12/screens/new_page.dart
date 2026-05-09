@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter2/lesson_12/models/widget_item.dart';
 import 'package:flutter2/lesson_12/widgets/card-footer.widget.dart';
+import 'package:flutter2/lesson_12/widgets/card.widget.dart';
+import 'package:flutter2/lesson_12/widgets/section-title.widget.dart';
+import 'package:flutter2/lesson_12/widgets/stars.widget.dart';
+import 'package:flutter2/lesson_12/widgets/submit.widget.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../models/widget_item.dart';
-import '../widgets/card.widget.dart';
-import '../widgets/section-title.widget.dart';
-import '../widgets/stars.widget.dart';
-import '../widgets/submit.widget.dart';
 
 class NewPageScreen extends StatelessWidget {
   const NewPageScreen({required this.items, super.key});

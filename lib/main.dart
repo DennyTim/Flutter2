@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'lesson_11/homework_11_main.dart';
-import 'lesson_12/homework_12_main.dart';
-import 'lesson_13/homework_13_main.dart';
+import 'package:flutter2/lesson_11/homework_11_main.dart';
+import 'package:flutter2/lesson_12/homework_12_main.dart';
+import 'package:flutter2/lesson_13/homework_13_main.dart';
 
 void main() {
   runApp(const FlutterWidgetsApp());

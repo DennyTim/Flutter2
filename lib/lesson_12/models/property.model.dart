@@ -1,10 +1,4 @@
 class PropertyModel {
-  final String id;
-  final String title;
-  final String type;
-  final bool? isLike;
-  final bool? isActive;
-
   PropertyModel({
     required this.id,
     required this.title,
@@ -12,4 +6,10 @@ class PropertyModel {
     this.isLike,
     this.isActive,
   });
+
+  final String id;
+  final String title;
+  final String type;
+  final bool? isLike;
+  final bool? isActive;
 }
