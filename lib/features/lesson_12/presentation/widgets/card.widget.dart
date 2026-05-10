@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter2/lesson_12/models/property.model.dart';
-import 'package:flutter2/lesson_12/widgets/card-checkbox.widget.dart';
-import 'package:flutter2/lesson_12/widgets/card-text.widget.dart';
-import 'package:flutter2/lesson_12/widgets/card-title.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/models/property.model.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/card-checkbox.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/card-text.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/card-title.widget.dart';
 
 class MarkCard extends StatelessWidget {
   const MarkCard({

@@ -2,16 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class WidgetConstrainsTrainingScreen extends StatefulWidget {
-  const WidgetConstrainsTrainingScreen({super.key});
+class Homework13Main extends StatefulWidget {
+  const Homework13Main({super.key});
 
   @override
-  State<WidgetConstrainsTrainingScreen> createState() =>
-      _WidgetConstrainsTrainingScreenState();
+  State<Homework13Main> createState() => _Homework13MainState();
 }
 
-class _WidgetConstrainsTrainingScreenState
-    extends State<WidgetConstrainsTrainingScreen> {
+class _Homework13MainState extends State<Homework13Main> {
   int _currentIndex = 0;
 
   static const _tasks = <Widget>[

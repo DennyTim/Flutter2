@@ -1,0 +1,80 @@
+import 'package:flutter2/features/app/screens/home_screen.dart';
+import 'package:flutter2/features/app/screens/page_names.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/homework_11_main.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/subtask_1_screen.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/subtask_2_screen.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/subtask_3_screen.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/subtask_4_screen.dart';
+import 'package:flutter2/features/lesson_11/presentation/screens/subtask_5_screen.dart';
+import 'package:flutter2/features/lesson_12/presentation/screens/homework_12_main.dart';
+import 'package:flutter2/features/lesson_12/presentation/screens/new_page.dart';
+import 'package:flutter2/features/lesson_13/presentation/screens/homework_13_main.dart';
+import 'package:go_router/go_router.dart';
+
+final router = GoRouter(
+  routes: [
+    GoRoute(
+      path: '/',
+      name: ScreenNames.home,
+      builder: (context, state) => const HomeScreen(),
+      routes: [
+        GoRoute(
+          path: 'lesson_11',
+          name: ScreenNames.lesson_11,
+          builder: (context, state) => const Homework11Main(),
+          routes: [
+            GoRoute(
+              path: 'subtask_1',
+              name: ScreenNames.subtask_1,
+              builder: (context, state) => const Subtask1Screen(),
+              routes: [],
+            ),
+            GoRoute(
+              path: 'subtask_2',
+              name: ScreenNames.subtask_2,
+              builder: (context, state) => const Subtask2Screen(),
+              routes: [],
+            ),
+            GoRoute(
+              path: 'subtask_3',
+              name: ScreenNames.subtask_3,
+              builder: (context, state) => const Subtask3Screen(),
+              routes: [],
+            ),
+            GoRoute(
+              path: 'subtask_4',
+              name: ScreenNames.subtask_4,
+              builder: (context, state) => const Subtask4Screen(),
+              routes: [],
+            ),
+            GoRoute(
+              path: 'subtask_5',
+              name: ScreenNames.subtask_5,
+              builder: (context, state) => const Subtask5Screen(),
+              routes: [],
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'lesson_12',
+          name: ScreenNames.lesson_12,
+          builder: (context, state) => const Homework12Main(),
+          routes: [
+            GoRoute(
+              path: 'assessment',
+              name: ScreenNames.assessment,
+              builder: (context, state) => const NewPageScreen(),
+              routes: [],
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'lesson_13',
+          name: ScreenNames.lesson_13,
+          builder: (context, state) => const Homework13Main(),
+          routes: [],
+        ),
+      ],
+    ),
+  ],
+);
