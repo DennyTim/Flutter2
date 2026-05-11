@@ -1,4 +1,5 @@
-import 'package:flutter2/lesson_12/models/property.model.dart';
+
+import 'package:flutter2/features/lesson_12/presentation/models/property.model.dart';
 
 class WidgetItem {
   WidgetItem({required this.id, required this.type, this.title});

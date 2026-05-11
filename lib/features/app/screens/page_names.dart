@@ -1,0 +1,18 @@
+abstract class ScreenNames {
+  static const home = 'home';
+
+  // lessons
+  static const lesson_11 = 'lesson_11';
+  static const lesson_12 = 'lesson_12';
+  static const lesson_13 = 'lesson_13';
+
+  // subtasks
+  static const subtask_1 = 'subtask_1';
+  static const subtask_2 = 'subtask_2';
+  static const subtask_3 = 'subtask_3';
+  static const subtask_4 = 'subtask_4';
+  static const subtask_5 = 'subtask_5';
+
+  // assessment
+  static const assessment = 'assessment';
+}

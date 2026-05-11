@@ -1,5 +1,7 @@
-import 'package:flutter2/lesson_12/models/property.model.dart';
-import 'package:flutter2/lesson_12/models/widget_item.dart';
+
+
+import 'package:flutter2/features/lesson_12/presentation/models/property.model.dart';
+import 'package:flutter2/features/lesson_12/presentation/models/widget_item.dart';
 
 final List<WidgetItem> widgetPayload = [
   StarsItem(id: 'stars', starCount: 5, rating: 3),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter2/lesson_12/models/payload.dart';
-import 'package:flutter2/lesson_12/screens/new_page.dart';
+import 'package:flutter2/features/app/screens/page_names.dart';
+import 'package:flutter2/features/lesson_12/presentation/models/payload.dart';
+import 'package:go_router/go_router.dart';
 
 class Homework12Main extends StatelessWidget {
   const Homework12Main({super.key});
@@ -16,15 +17,11 @@ class Homework12Main extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            NavigationCard(
+            NavCard(
               title: 'Оцінка візиту до магазину',
               description: '- Create page regarding Figma Design ',
-              onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute<Widget>(
-                  builder: (context) => NewPageScreen(items: widgetPayload),
-                ),
-              ),
+              onTap: () =>
+                  context.goNamed(ScreenNames.assessment, extra: widgetPayload),
             ),
           ],
         ),
@@ -33,8 +30,8 @@ class Homework12Main extends StatelessWidget {
   }
 }
 
-class NavigationCard extends StatelessWidget {
-  const NavigationCard({
+class NavCard extends StatelessWidget {
+  const NavCard({
     required this.title,
     required this.description,
     required this.onTap,

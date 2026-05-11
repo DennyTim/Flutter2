@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter2/lesson_12/models/widget_item.dart';
-import 'package:flutter2/lesson_12/widgets/card-footer.widget.dart';
-import 'package:flutter2/lesson_12/widgets/card.widget.dart';
-import 'package:flutter2/lesson_12/widgets/section-title.widget.dart';
-import 'package:flutter2/lesson_12/widgets/stars.widget.dart';
-import 'package:flutter2/lesson_12/widgets/submit.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/models/widget_item.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/card-footer.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/card.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/section-title.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/stars.widget.dart';
+import 'package:flutter2/features/lesson_12/presentation/widgets/submit.widget.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class NewPageScreen extends StatelessWidget {
-  const NewPageScreen({required this.items, super.key});
-
-  final List<WidgetItem> items;
+  const NewPageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final data = GoRouterState.of(context).extra! as List<WidgetItem>;
+
     return Scaffold(
       appBar: AppBar(
         /**
@@ -23,7 +24,7 @@ class NewPageScreen extends StatelessWidget {
         titleSpacing: -10,
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
         ),
         title: Text(
           'Оцінка візиту до магазину',
@@ -48,7 +49,7 @@ class NewPageScreen extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      ...items.map((WidgetItem item) {
+                      ...data.map((WidgetItem item) {
                         return switch (item) {
                           StarsItem() => Stars(
                             starCount: item.starCount,

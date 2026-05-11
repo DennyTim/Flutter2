@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter2/features/lesson_11/presentation/widgets/dynamic_card.widget.dart';
 
-import 'package:flutter2/lesson_11/widgets/dynamic_card.widget.dart';
 
 class Subtask5Screen extends StatelessWidget {
   const Subtask5Screen({super.key});
