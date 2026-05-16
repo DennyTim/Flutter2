@@ -3,4 +3,3 @@ class CounterState {
 
   final int count;
 }
-
