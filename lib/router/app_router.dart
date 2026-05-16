@@ -9,9 +9,11 @@ import 'package:flutter2/features/lesson_11/presentation/screens/subtask_5_scree
 import 'package:flutter2/features/lesson_12/presentation/screens/homework_12_main.dart';
 import 'package:flutter2/features/lesson_12/presentation/screens/new_page.dart';
 import 'package:flutter2/features/lesson_13/presentation/screens/homework_13_main.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/counter_bloc.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/homework_bloc_screen.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/homework_cubit_screen.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/state_management_base_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -85,7 +87,10 @@ final router = GoRouter(
             GoRoute(
               path: 'bloc_counter_example',
               name: ScreenNames.blocCounterExample,
-              builder: (context, state) => const HomeworkBlocScreen(),
+              builder: (context, state) => BlocProvider(
+                create: (context) => CounterBloc(),
+                child: const HomeworkBlocScreen()
+              ),
               routes: [],
             ),
             GoRoute(
