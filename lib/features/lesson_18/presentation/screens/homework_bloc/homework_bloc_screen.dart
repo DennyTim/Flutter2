@@ -9,8 +9,6 @@ class HomeworkBlocScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final counterBloc = context.read<CounterBloc>();
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('BLoC Counter Example'),
@@ -37,14 +35,14 @@ class HomeworkBlocScreen extends StatelessWidget {
         children: [
           FloatingActionButton(
             heroTag: null,
-            onPressed: () => counterBloc.add(Decrement()),
+            onPressed: () => context.read<CounterBloc>().add(Decrement()),
             tooltip: 'Decrement',
             child: const Icon(Icons.remove),
           ),
           const SizedBox(width: 16),
           FloatingActionButton(
             heroTag: null,
-            onPressed: () => counterBloc.add(Increment()),
+            onPressed: () => context.read<CounterBloc>().add(Increment()),
             tooltip: 'Increment',
             child: const Icon(Icons.add),
           ),

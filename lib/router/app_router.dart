@@ -11,6 +11,7 @@ import 'package:flutter2/features/lesson_12/presentation/screens/new_page.dart';
 import 'package:flutter2/features/lesson_13/presentation/screens/homework_13_main.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/counter_bloc.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/homework_bloc_screen.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/counter_cubit.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/homework_cubit_screen.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/state_management_base_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -89,14 +90,17 @@ final router = GoRouter(
               name: ScreenNames.blocCounterExample,
               builder: (context, state) => BlocProvider(
                 create: (context) => CounterBloc(),
-                child: const HomeworkBlocScreen()
+                child: const HomeworkBlocScreen(),
               ),
               routes: [],
             ),
             GoRoute(
               path: 'cubit_counter_example',
               name: ScreenNames.cubitCounterExample,
-              builder: (context, state) => const HomeworkCubitScreen(),
+              builder: (context, state) => BlocProvider(
+                create: (context) => CounterCubit(),
+                child: const HomeworkCubitScreen(),
+              ),
               routes: [],
             ),
           ],
