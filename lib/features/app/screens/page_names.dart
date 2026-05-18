@@ -5,6 +5,7 @@ abstract class ScreenNames {
   static const lesson_11 = 'lesson_11';
   static const lesson_12 = 'lesson_12';
   static const lesson_13 = 'lesson_13';
+  static const lesson_18 = 'lesson_18';
 
   // subtasks
   static const subtask_1 = 'subtask_1';
@@ -15,4 +16,8 @@ abstract class ScreenNames {
 
   // assessment
   static const assessment = 'assessment';
+
+  // state management
+  static const blocCounterExample = 'bloc_counter_example';
+  static const cubitCounterExample = 'cubit_counter_example';
 }

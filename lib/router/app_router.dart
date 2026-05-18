@@ -9,6 +9,12 @@ import 'package:flutter2/features/lesson_11/presentation/screens/subtask_5_scree
 import 'package:flutter2/features/lesson_12/presentation/screens/homework_12_main.dart';
 import 'package:flutter2/features/lesson_12/presentation/screens/new_page.dart';
 import 'package:flutter2/features/lesson_13/presentation/screens/homework_13_main.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/counter_bloc.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/homework_bloc_screen.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/counter_cubit.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/homework_cubit_screen.dart';
+import 'package:flutter2/features/lesson_18/presentation/screens/state_management_base_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 final router = GoRouter(
@@ -73,6 +79,31 @@ final router = GoRouter(
           name: ScreenNames.lesson_13,
           builder: (context, state) => const Homework13Main(),
           routes: [],
+        ),
+        GoRoute(
+          path: 'lesson_18',
+          name: ScreenNames.lesson_18,
+          builder: (context, state) => const StateManagementBaseScreen(),
+          routes: [
+            GoRoute(
+              path: 'bloc_counter_example',
+              name: ScreenNames.blocCounterExample,
+              builder: (context, state) => BlocProvider(
+                create: (context) => CounterBloc(),
+                child: const HomeworkBlocScreen(),
+              ),
+              routes: [],
+            ),
+            GoRoute(
+              path: 'cubit_counter_example',
+              name: ScreenNames.cubitCounterExample,
+              builder: (context, state) => BlocProvider(
+                create: (context) => CounterCubit(),
+                child: const HomeworkCubitScreen(),
+              ),
+              routes: [],
+            ),
+          ],
         ),
       ],
     ),
