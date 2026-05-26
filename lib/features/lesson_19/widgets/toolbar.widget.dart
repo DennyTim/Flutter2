@@ -169,7 +169,7 @@ class Toolbar extends StatelessWidget {
           ? [_getButton(context, ButtonType.finish, true)]
           : [
               rateState.status.isInProgress
-                  ? _getButton(context, ButtonType.submitInProgress, false)
+                  ? _getButton(context, ButtonType.submitInProgress, true)
                   : _getButton(context, ButtonType.submit, rateState.isValid),
               SizedBox(width: 12),
               _getButton(
