@@ -30,22 +30,22 @@ class HomeworkBallAnimationState extends State<HomeworkBallAnimation>
     ballAnimation = TweenSequence<double>([
       TweenSequenceItem(
         tween: Tween(
-          begin: 240.0,
-          end: 700.0,
+          begin: 150.0,
+          end: 720.0,
         ).chain(CurveTween(curve: Curves.easeOut)),
         weight: 25.0,
       ),
       TweenSequenceItem(
         tween: Tween(
-          begin: 700.0,
-          end: 700.0,
+          begin: 720.0,
+          end: 720.0,
         ).chain(CurveTween(curve: Curves.linear)),
         weight: 10.0,
       ),
       TweenSequenceItem(
         tween: Tween(
-          begin: 700.0,
-          end: 240.0,
+          begin: 720.0,
+          end: 150.0,
         ).chain(CurveTween(curve: Curves.bounceOut)),
         weight: 65.0,
       ),
