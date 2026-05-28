@@ -14,6 +14,7 @@ import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/h
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/counter_cubit.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/homework_cubit_screen.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/state_management_base_screen.dart';
+import 'package:flutter2/features/lesson_21/presentation/screens/homework_ball_animation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -105,6 +106,12 @@ final router = GoRouter(
             ),
           ],
         ),
+        GoRoute(
+          path: 'lesson_21',
+          name: ScreenNames.lesson_21,
+          builder: (context, state) => const HomeworkBallAnimation(),
+          routes: [],
+        )
       ],
     ),
   ],
