@@ -9,3 +9,12 @@ final class UserProfileLoaded implements UserProfileState {
 
   final UserEntity user;
 }
+
+final class UserProfileError implements UserProfileState {
+  UserProfileError(this.status, this.errorMessage);
+
+  final UserProfileStatus status;
+  final String errorMessage;
+}
+
+enum UserProfileStatus { initial, loading, loaded, error }

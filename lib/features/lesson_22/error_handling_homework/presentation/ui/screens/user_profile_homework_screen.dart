@@ -29,7 +29,20 @@ class _UserProfileHomeworkScreenState extends State<UserProfileHomeworkScreen> {
             UserProfileLoaded() => _LoadedProfileWidget(user: state.user),
 
             // Error State
-            // TODO(student): Need implement error state
+            UserProfileError() => Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(state.errorMessage, textAlign: TextAlign.center),
+                  SizedBox(height: 16),
+                  ElevatedButton(
+                    onPressed: () =>
+                        context.read<UserProfileCubit>().loadUserProfile(),
+                    child: Text('Спробувати знову'),
+                  ),
+                ],
+              ),
+            ),
           };
         },
       ),
