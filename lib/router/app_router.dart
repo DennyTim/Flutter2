@@ -14,6 +14,9 @@ import 'package:flutter2/features/lesson_18/presentation/screens/homework_bloc/h
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/counter_cubit.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/homework_cubit/homework_cubit_screen.dart';
 import 'package:flutter2/features/lesson_18/presentation/screens/state_management_base_screen.dart';
+import 'package:flutter2/features/lesson_19/presentation/bloc/rate_bloc.dart';
+import 'package:flutter2/features/lesson_19/presentation/screens/rate_app_screen.dart';
+import 'package:flutter2/features/lesson_19/presentation/screens/rate_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -100,6 +103,22 @@ final router = GoRouter(
               builder: (context, state) => BlocProvider(
                 create: (context) => CounterCubit(),
                 child: const HomeworkCubitScreen(),
+              ),
+              routes: [],
+            ),
+          ],
+        ),
+        GoRoute(
+          path: 'lesson_19',
+          name: ScreenNames.lesson_19,
+          builder: (context, state) => const RateAppScreen(),
+          routes: [
+            GoRoute(
+              path: 'rate_screen',
+              name: ScreenNames.rateScreen,
+              builder: (context, state) => BlocProvider(
+                create: (context) => RateFormBloc(),
+                child: const RateScreen(),
               ),
               routes: [],
             ),
