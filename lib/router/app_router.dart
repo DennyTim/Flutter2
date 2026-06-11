@@ -18,6 +18,9 @@ import 'package:flutter2/features/lesson_19/presentation/bloc/rate_bloc.dart';
 import 'package:flutter2/features/lesson_19/presentation/screens/rate_app_screen.dart';
 import 'package:flutter2/features/lesson_19/presentation/screens/rate_screen.dart';
 import 'package:flutter2/features/lesson_21/presentation/screens/homework_ball_animation.dart';
+import 'package:flutter2/features/lesson_22/error_handling_homework/data/repository/fake_user_repository.dart';
+import 'package:flutter2/features/lesson_22/error_handling_homework/presentation/cubit/user_profile_cubit.dart';
+import 'package:flutter2/features/lesson_22/error_handling_homework/presentation/ui/screens/user_profile_homework_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -130,7 +133,18 @@ final router = GoRouter(
           name: ScreenNames.lesson_21,
           builder: (context, state) => const HomeworkBallAnimation(),
           routes: [],
-        )
+        ),
+        GoRoute(
+          path: 'lesson_22',
+          name: ScreenNames.lesson_22,
+          // builder: (context, state) => const UserProfileHomeworkScreen(),
+          builder: (context, state) => BlocProvider(
+            create: (context) =>
+                UserProfileCubit(FakeUserRepository())..loadUserProfile(),
+            child: const UserProfileHomeworkScreen(),
+          ),
+          routes: [],
+        ),
       ],
     ),
   ],
