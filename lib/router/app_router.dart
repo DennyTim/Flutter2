@@ -21,6 +21,10 @@ import 'package:flutter2/features/lesson_21/presentation/screens/homework_ball_a
 import 'package:flutter2/features/lesson_22/error_handling_homework/data/repository/fake_user_repository.dart';
 import 'package:flutter2/features/lesson_22/error_handling_homework/presentation/cubit/user_profile_cubit.dart';
 import 'package:flutter2/features/lesson_22/error_handling_homework/presentation/ui/screens/user_profile_homework_screen.dart';
+import 'package:flutter2/features/lesson_25/presentation/cheque_bloc.dart';
+import 'package:flutter2/features/lesson_25/presentation/cheque_event.dart';
+import 'package:flutter2/features/lesson_25/repository/cheque_repository.dart';
+import 'package:flutter2/features/lesson_25/screens/homework_25_main.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -137,11 +141,20 @@ final router = GoRouter(
         GoRoute(
           path: 'lesson_22',
           name: ScreenNames.lesson_22,
-          // builder: (context, state) => const UserProfileHomeworkScreen(),
           builder: (context, state) => BlocProvider(
             create: (context) =>
                 UserProfileCubit(FakeUserRepository())..loadUserProfile(),
             child: const UserProfileHomeworkScreen(),
+          ),
+          routes: [],
+        ),
+        GoRoute(
+          path: 'lesson_25',
+          name: ScreenNames.lesson_25,
+          builder: (context, state) => BlocProvider(
+            create: (context) =>
+                ChequeBloc(ChequeRepository())..add(const ChequeRequested()),
+            child: const Homework25Main(),
           ),
           routes: [],
         ),
