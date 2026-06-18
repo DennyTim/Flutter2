@@ -9,6 +9,7 @@ abstract class ScreenNames {
   static const lesson_19 = 'lesson_19';
   static const lesson_21 = 'lesson_21';
   static const lesson_22 = 'lesson_22';
+  static const lesson_25 = 'lesson_25';
 
   // subtasks
   static const subtask_1 = 'subtask_1';
